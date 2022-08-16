@@ -12,7 +12,7 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 
-    <title>스파르타코딩클럽 | 1주차 숙제</title>
+    <title>스파르타코딩클럽 | 2주차 숙제</title>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
     <style>
@@ -62,9 +62,27 @@
 
     </style>
     <script>
+        $(document).ready(function(){
+            $('#change_rtan').empty()
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+                data: {},
+                success: function (response) {
+
+                    console.log(response)
+
+                        let temp = response['temp']
+                        $('#temp').text(temp)
+                        }
+                })
+        });
+
+
         function comment_save() {
             alert('아직 연결 전입니다.');
         }
+
     </script>
 </head>
 
@@ -72,6 +90,7 @@
 <div class="mytitle">
     <h1>헤어질 결심 팬명록
         <br>명대사 모음</h1>
+    <p>현재기온 : <span id="temp">00.0</span>도</p>
 </div>
 <div class="mypost">
     <div class="form-floating mb-3">
